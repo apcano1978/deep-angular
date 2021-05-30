@@ -6,6 +6,8 @@ import { PublicComponent } from './public.component';
 import { HomeComponent } from './home/containers/home.component';
 import { LoginComponent } from './login/containers/login.component';
 
+import { PublicService } from './public.service';
+
 @NgModule({
   imports: [
     PublicRoutingModule,
@@ -17,7 +19,9 @@ import { LoginComponent } from './login/containers/login.component';
     LoginComponent
   ],
   exports: [],
-  providers: []
+  providers: [
+    PublicService
+  ]
 })
 
 export class PublicModule {
