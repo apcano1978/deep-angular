@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",
-    "@angular/cli": "file:../../../../../usr/local/Cellar/node/15.0.1/lib/node_modules/@angular/cli",
+    "@angular/cli": "^11.1.2",
     "@angular/compiler-cli": "~10.1.6",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
