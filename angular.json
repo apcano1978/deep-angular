@@ -127,7 +127,6 @@
       }
     }
   },
-  "defaultProject": "angular-trials",
   "cli": {
     "analytics": "0707484c-9168-4a46-9472-57a0f195afd4"
   }
