@@ -3,8 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
