@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { of, from } from 'rxjs';
 import { PublicService } from '../../public.service';
 
 @Component({
@@ -11,48 +11,50 @@ export class HomeComponent implements OnInit {
   characters = [];
   continents = [];
 
+  currentCharacter: any = null;
+
+  knownContinentsList = { id: 1, name: 'Westeros' };
+
   constructor(private publicService: PublicService) {}
 
   ngOnInit() {
-    // this.getCharacters();
-    // this.getContinents();
-    this.myVeryFirstObservable();
+    this.getCharacters();
+    this.getContinents();
   }
 
-  myVeryFirstObservable() {
-    const observable = new Observable(subscriber => {
-      let count = 0;
+  getCharacters() {
+    this.publicService.getCharacters().subscribe(
+      response => {
+        this.characters = response;
+        console.log('Personajes obtenidos ---> ', this.characters);
+      },
+      error => console.log(error)
+    )
+  }
 
-      setInterval(() => {
-        subscriber.next(count);
-        count += 1;
-      }, 1000);
-    });
+  getCharacter(id: number) {
+    this.publicService.getCharacter(id).subscribe(
+      response => {
+        this.currentCharacter = response;
+        console.log(response);
+      },
+      error => console.log(error)
+    )
+  }
 
-    console.log('Antes de ejecutar el observable...');
-    const subscription = observable.subscribe(
-      value => console.log('Callback next', value),
-      error => console.log('Callback error', error),
-      () => console.log('Observable completado')
+  getContinents() {
+    of(this.knownContinentsList).subscribe(
+      response => {
+        // this.continents = response;
+        console.log('Continentes obtenidos ---> ', response);
+      }
     );
-    console.log('Después de ejecutar el observable...');
-
-    setTimeout(() => {
-      subscription.unsubscribe();
-    }, 3500)
+    this.publicService.getContinents().subscribe(
+      response => {
+        this.continents = response;
+        console.log('Continentes obtenidos ---> ', this.continents);
+      },
+      error => console.log(error)
+    )
   }
-
-  // getCharacters() {
-  //   this.publicService.getCharacters().subscribe(
-  //     response => this.characters = response,
-  //     error => console.log(error)
-  //   )
-  // }
-
-  // getContinents() {
-  //   this.publicService.getContinents().subscribe(
-  //     response => this.continents = response,
-  //     error => console.log(error)
-  //   )
-  // }
 }

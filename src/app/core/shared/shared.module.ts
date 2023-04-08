@@ -3,8 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
@@ -13,8 +13,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     RouterModule,
     CommonModule,
-    MatTabsModule,
-    MatCardModule
   ],
   declarations: [
     NotFoundComponent
@@ -23,8 +21,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HttpClientModule,
     RouterModule,
     CommonModule,
-    MatTabsModule,
     MatCardModule,
+    MatTabsModule,
     NotFoundComponent
   ],
   providers: []
