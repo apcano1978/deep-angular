@@ -43,16 +43,10 @@ export class HomeComponent implements OnInit {
   }
 
   getContinents() {
-    of(this.knownContinentsList).subscribe(
-      response => {
-        // this.continents = response;
-        console.log('Continentes obtenidos ---> ', response);
-      }
-    );
     this.publicService.getContinents().subscribe(
       response => {
         this.continents = response;
-        console.log('Continentes obtenidos ---> ', this.continents);
+        // console.log('Continentes obtenidos ---> ', this.continents);
       },
       error => console.log(error)
     )

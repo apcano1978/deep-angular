@@ -7,7 +7,7 @@
           <div *ngFor="let c of characters" class="col col-6 col-md-4">
             <mat-card class="character-card">
               <mat-card-header>
-                <mat-card-title>{{ c.firstName + ' ' + c.lastName }}</mat-card-title>
+                <mat-card-title>{{ c.fullName }}</mat-card-title>
                 <mat-card-subtitle>{{ c.family }}</mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image [src]="c.imageUrl" class="character-image">
