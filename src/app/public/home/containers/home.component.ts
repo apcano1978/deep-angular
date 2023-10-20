@@ -8,7 +8,7 @@ import { PublicService } from '../../public.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  characters = [];
+  filterText: string = '';
   continents = [];
 
   currentCharacter: any = null;
@@ -18,18 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private publicService: PublicService) {}
 
   ngOnInit() {
-    this.getCharacters();
     this.getContinents();
-  }
-
-  getCharacters() {
-    this.publicService.getCharacters().subscribe(
-      response => {
-        this.characters = response;
-        console.log('Personajes obtenidos ---> ', this.characters);
-      },
-      error => console.log(error)
-    )
   }
 
   getCharacter(id: number) {
@@ -50,5 +39,10 @@ export class HomeComponent implements OnInit {
       },
       error => console.log(error)
     )
+  }
+
+  applyFilter(filterText: string) {
+    console.log('Texto de búsqueda ---> ', filterText);
+    this.filterText = filterText;
   }
 }

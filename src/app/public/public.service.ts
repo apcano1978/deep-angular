@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, map, pluck, catchError } from 'rxjs/operators';
+import { UserDto } from '../core/models/user-dto';
 
 @Injectable()
 
@@ -16,6 +17,12 @@ export class PublicService{
       }),
       catchError(this.handleError)
     )
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get('https://reqres.in/api/users').pipe(
+      catchError(this.handleError)
+    );
   }
 
   getContinents(): Observable<any> {

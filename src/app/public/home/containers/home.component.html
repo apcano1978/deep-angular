@@ -1,24 +1,10 @@
 <div class="container my-3">
-  <h3>Info Juego de tronos</h3>
+  <h2>Personajes y contientes de Juego de tronos</h2>
+  <app-header-filter-box (filterText)="applyFilter($event)"></app-header-filter-box>
   <div class="my-3">
     <mat-tab-group>
       <mat-tab label="Personajes">
-        <div class="row">
-          <div *ngFor="let c of characters" class="col col-6 col-md-4">
-            <mat-card class="character-card">
-              <mat-card-header>
-                <mat-card-title>{{ c.fullName }}</mat-card-title>
-                <mat-card-subtitle>{{ c.family }}</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image [src]="c.imageUrl" class="character-image">
-              <mat-card-content>
-                <p>
-                  {{ c.title }}
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </div>
+        <app-characters-list [searchFilter]="filterText"></app-characters-list>
       </mat-tab>
       <mat-tab label="Continentes">
         <div *ngFor="let c of continents">

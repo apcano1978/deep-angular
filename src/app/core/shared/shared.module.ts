@@ -7,6 +7,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderFilterBoxComponent } from './components/header-filter-box/header-filter-box.component';
+import { NameFilterPipe } from './pipes/name-filter.pipe';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CommonModule,
   ],
   declarations: [
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderFilterBoxComponent,
+    NameFilterPipe
   ],
   exports: [
     HttpClientModule,
@@ -23,7 +27,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     CommonModule,
     MatCardModule,
     MatTabsModule,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderFilterBoxComponent,
+    NameFilterPipe
   ],
   providers: []
 })
